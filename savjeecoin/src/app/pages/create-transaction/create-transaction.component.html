@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Tạo transaction cho việc đấu giá:</h1>
+    <p>Chuyển một số tiền cho ai đó!</p>
+
+    <br>
+
+    <div class="form-group">
+        <label for="fromAddress">From address</label>
+        <input type="text" class="form-control" id="fromAddress" aria-describedby="fromAddressHelp" [(ngModel)]="ownWalletKey.publicKey" disabled>
+        <small id="fromAddressHelp" class="form-text text-muted">
+	    	Đây là wallet address của bạn. Bạn không thể thay đổi nó bởi vì bạn chỉ có thể dùng Coin của riêng bạn.
+	    </small>
+    </div>
+
+    <div class="form-group">
+        <label for="toAddress">To address</label>
+        <input type="text" class="form-control" id="toAddress" aria-describedby="toAddressHelp" [(ngModel)]="newTx.toAddress">
+        <small id="toAddressHelp" class="form-text text-muted">
+	    	Wallet address mà bạn muốn gửi tiền đến. Bạn có thể nhập văn bản ngẫu nhiên tại đây (nếu bạn không quan tâm đến việc thu hồi tiền)
+	    </small>
+    </div>
+
+    <div class="form-group">
+        <label for="amount">Amount (Số tiền bạn muốn đấu giá)</label>
+        <input type="number" class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="newTx.amount">
+        <small id="amountHelp" class="form-text text-muted">
+	    	Bạn có thể chuyển bất kỳ số tiền nào. Số dư tài khoản không được kiểm tra trong bản demo này.
+	    </small>
+    </div>
+
+    <button (click)="createTransaction()" type="submit" class="btn btn-primary">Sign & Tạo transaction</button>
+
+</div>

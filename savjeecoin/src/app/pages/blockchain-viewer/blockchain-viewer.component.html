@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Các Block trong chuỗi </h1>
+    <p>Mỗi thẻ đại diện cho một khối trên chuỗi và sẽ lưu số tiền mà mỗi người đấu giá. Nhấp vào một khối để xem các giao dịch được lưu trữ bên trong. Các khối này sẽ lưu trữ số tiền mà bạn đấu giá đến admin</p>
+</div>
+
+<div class="container" style="overflow-x: scroll;white-space: nowrap;">
+    <app-block-view *ngFor="let block of blocks" [block]="block" [selectedBlock]="selectedBlock" (click)="showTransactions(block)"></app-block-view>
+</div>
+
+<br><br>
+
+<div class="container">
+    <h1>Các transaction bên trong block {{ getBlockNumber(selectedBlock) }}</h1>
+
+    <app-transactions-table [transactions]="selectedBlock.transactions"></app-transactions-table>
+</div>

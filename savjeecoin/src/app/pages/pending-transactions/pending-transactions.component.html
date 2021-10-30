@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div class="alert alert-success" role="alert" *ngIf="justAddedTx">
+        Transaction đã được tạo thành công!
+    </div>
+
+    <h1>Pending transactions</h1>
+    <p>Các Transaction này đang chờ được đưa vào khối tiếp theo. Block tiếp theo được tạo khi bạn bắt đầu quá trình Mining.</p>
+
+    <app-transactions-table [transactions]="pendingTransactions">
+    </app-transactions-table>
+
+    <button class="btn btn-primary" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
+     	Bắt đầu mining
+    </button>
+
+    <div *ngIf="miningInProgress === true">
+        Mining block.. Vui lòng đợi...
+    </div>
+</div>
